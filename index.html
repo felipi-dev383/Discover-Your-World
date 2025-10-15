@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventuras Globais 🌍</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poller+One&family=SUSE+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-image: url('https://i.pinimg.com/originals/e5/e2/71/e5e2711cfd824072dcb4c2475020ead1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      font-family: "SUSE Mono", monospace;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.5);
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+
+    h1 {
+      font-family: "Poller One", serif;
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 10px auto;
+      color: #f1f1f1;
+    }
+
+    .galeria {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      width: 280px;
+      height: 360px;
+      perspective: 1000px;
+    }
+
+    .inner-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .inner-card {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+
+    .front {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .back {
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .back h3 {
+      font-family: "Poller One", serif;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    .back p {
+      font-size: 0.95em;
+    }
+
+    section {
+      margin: 60px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-family: "Poller One", serif;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+
+    section img.flag {
+      width: 40px;
+      height: auto;
+      margin-left: 10px;
+      vertical-align: middle;
+      border-radius: 5px;
+    }
+
+    figure {
+      text-align: center;
+      width: 300px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    figure:hover {
+      transform: scale(1.05);
+    }
+
+    figure img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .botoes button {
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      border: none;
+      color: #222;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-family: "Poller One", serif;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .botoes button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .galeria {
+        flex-direction: column;
+        align-items: center;
+      }
+      figure {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+     <h1>Aventuras Globais ✈️</h1>
+    <p>Rick, Alice e Ruan explorando o mundo — da escola aos horizontes mais distantes!</p>
+  </header>
+
+  <section style="margin: 40px auto; padding: 20px; background: rgba(0, 0, 0, 0.6); border-radius: 12px; width: 90%; max-width: 1200px;">
+  <p style="text-align:center; font-size:1.15em; color:#f1f1f1;">
+    🌍✨ Bem-vindo ao <strong>Aventuras Globais</strong> — um diário visual e emocional das jornadas de três grandes amigos: <strong>Rick</strong> 🏞️, <strong>Alice</strong> 🎨 e <strong>Ruan</strong> 💻.
+    <br><br>
+    Cada viagem é mais do que um destino: é uma história vivida com curiosidade, amizade e descobertas. Enquanto Rick busca conexão com a natureza, Alice captura a beleza dos lugares com seu olhar artístico, e Ruan explora a tecnologia em cada canto do mundo.
+    <br><br>
+    ✈️🌐 Juntos, eles mostram que viajar é uma forma de aprender, crescer e se conectar com culturas diferentes. Prepare-se para conhecer monumentos icônicos, paisagens inspiradoras e momentos únicos que vão te fazer querer embarcar nessa jornada também!
+    <br><br>
+    👉 Role a página e descubra como o mundo se transforma quando visto pelos olhos de quem ama explorar!
+  </p>
+</section>
+
+
+  <section>
+    <h2>Nosso Trio de Aventureiros</h2>
+    <div class="galeria">
+      <div class="card">
+        <div class="inner-card">
+          <div class="front">
+            <img src="https://thumbs.dreamstime.com/b/viajando-tentativa-nova-do-homem-viajante-ao-carro-de-captura-em-uma-estrada-floresta-o-novo-os-homens-tentam-viagem-por-curso-149698177.jpg" alt="Rick viajando">
+          </div>
+          <div class="back">
+            <h3>Rick</h3>
+            <p>Formado em Engenharia Ambiental, Rick trabalha com sustentabilidade e ama trilhas, montanhas e aventuras ao ar livre.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="inner-card">
+          <div class="front">
+            <img src="https://img.ilgcdn.com/sites/default/files/styles/social/public/foto/2023/04/24/1682366974-pexels-andrea-piacquadio-3812953.jpg?_=1682500294" alt="Alice viajando">
+          </div>
+          <div class="back">
+            <h3>Alice</h3>
+            <p>Estudante de Design e apaixonada por fotografia. Trabalha em projetos visuais e sonha em conhecer todos os museus da Europa.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="inner-card">
+          <div class="front">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.KULqi2ud7UO0f5GtKDPmlAHaE7?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ruan viajando">
+          </div>
+          <div class="back">
+            <h3>Ruan</h3>
+            <p>Graduando em Ciências da Computação. Apaixonado por tecnologia, gosta de programar enquanto viaja e busca Wi-Fi pelo mundo!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Primeiro Lugar: Paris - FRANÇA 🇫🇷 <img class="flag" src="https://flagcdn.com/w40/fr.png" alt="Bandeira da França"></h2>
+    <div class="galeria">
+      <figure><img src="https://tse3.mm.bing.net/th/id/OIP.cew5Ub5da1dvZ1HzC9g2_QHaF-" alt="Torre Eiffel"><figcaption>A icônica Torre Eiffel em Paris.</figcaption></figure>
+      <figure><img src="https://tse2.mm.bing.net/th/id/OIP.8-zDFz1t6viBdQh_gvKx4AHaE7" alt="Arco do Triunfo"><figcaption>O imponente Arco do Triunfo ao fundo.</figcaption></figure>
+      <figure><img src="https://wallup.net/wp-content/uploads/2019/09/538743-architecture-cities-france-light-towers-monuments-night-panorama-panoramic-paris-urban-temples-1.jpg" alt="Ponte Alexandre III"><figcaption>Ponte Alexandre III — uma das mais elegantes de Paris.</figcaption></figure>
+     
+<p style="text-align:center; max-width:800px; margin:20px auto; font-size:1.1em;">
+  Em Paris, o trio se encantou com a <strong>Torre Eiffel</strong>, símbolo máximo da cidade luz. Caminharam pelo <strong>Arco do Triunfo</strong>, admirando sua imponência histórica, e cruzaram a <strong>Ponte Alexandre III</strong>, considerada uma das mais elegantes da Europa.
+</p>
+ 
+</div>
+  </section>
+
+  <section>
+    <h2>Segundo Lugar: Tóquio - JAPÃO 🇯🇵 <img class="flag" src="https://flagcdn.com/w40/jp.png" alt="Bandeira do Japão"></h2>
+    <div class="galeria">
+      <figure><img src="https://thumbs.dreamstime.com/z/cruzamento-de-shibuya-28553481.jpg" alt="Shibuya"><figcaption>O icônico cruzamento de Shibuya em Tóquio.</figcaption></figure>
+      <figure><img src="https://th.bing.com/th/id/R.8dce531b44d0d00464a815a990714a61?rik=WarUkax56obbKQ&pid=ImgRaw&r=0" alt="Torre de Tóquio"><figcaption>A Torre de Tóquio, inspirada na Torre Eiffel.</figcaption></figure>
+      <figure><img src="https://www.travelonline.com/japan/attractions/senso-ji-temple/tokyo-sensoji-ji-temple-in-asakusa-japan-45396.jpg" alt="Templo Senso-ji"><figcaption>O Templo Senso-ji em Asakusa, o mais antigo da cidade.</figcaption></figure>
+    
+<p style="text-align:center; max-width:800px; margin:20px auto; font-size:1.1em;">
+  Em Tóquio, Rick, Alice e Ruan viveram a agitação do <strong>Cruzamento de Shibuya</strong>, subiram na <strong>Torre de Tóquio</strong> para uma vista panorâmica da cidade e meditaram no <strong>Templo Senso-ji</strong>, o mais antigo e espiritual da capital japonesa.
+</p>
+
+</div>
+  </section>
+
+  <section>
+    <h2>Terceiro Lugar: Nova York - EUA 🇺🇸 <img class="flag" src="https://flagcdn.com/w40/us.png" alt="Bandeira dos EUA"></h2>
+    <div class="galeria">
+      <figure><img src="https://i.pinimg.com/736x/d6/0d/f4/d60df4c3953df3410eb476e0050ad3a8.jpg" alt="Estátua da Liberdade"><figcaption>A Estátua da Liberdade — símbolo da liberdade e democracia.</figcaption></figure>
+      <figure><img src="https://th.bing.com/th/id/R.1a751ef6cefec9c205a9484291f76c12?rik=GItcfNlNVAvwVA&riu=http%3a%2f%2fwww.blackchickontour.com%2fwp-content%2fuploads%2f2009%2f10%2fCentral-Park-and-Fall-Leaves.jpg&ehk=t%2fp3D9eiky6Sp%2bJdIl6rbNHMZxKvVHieLLANAXUwzVU%3d&risl=&pid=ImgRaw&r=0" alt="Central Park"><figcaption>O Central Park, um oásis verde no coração da cidade.</figcaption></figure>
+      <figure><img src="https://th.bing.com/th/id/R.e0e7468bb41841328b0ff24cab02f80e?rik=R8x8Q2YursGG5g&riu=http%3a%2f%2fwww.101viajes.com%2fsites%2fdefault%2ffiles%2fempire-state-building.jpg&ehk=89S9q8d5%2bsujXpZWeDWam2vf56caWeQWcFN5iS5dYM4%3d&risl=&pid=ImgRaw&r=0" alt="Empire State"><figcaption>O Empire State Building, um dos arranha-céus mais famosos do mundo.</figcaption></figure>
+
+      <p style="text-align:center; max-width:800px; margin:20px auto; font-size:1.1em;">
+  Em Nova York, o trio se emocionou ao ver de perto a <strong>Estátua da Liberdade</strong>, passeou entre as árvores do <strong>Central Park</strong> e subiu ao topo do <strong>Empire State Building</strong> para admirar a cidade que nunca dorme.
+</p>
+
+</div>
+  </section>
+
+  <div class="botoes">
+    <button onclick="scrollToTop()">⬆️ Voltar ao topo</button>
+    <button onclick="alert('Obrigado por visitar! 🌍')">💬 Deixe sua mensagem</button>
+  </div>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
