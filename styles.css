@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('https://i.pinimg.com/originals/e5/e2/71/e5e2711cfd824072dcb4c2475020ead1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: "SUSE Mono", monospace;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0,0,0,0.5);
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+h1 {
+  font-family: "Poller One", serif;
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 10px auto;
+  color: #f1f1f1;
+}
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.card {
+  width: 280px;
+  height: 360px;
+  perspective: 1000px;
+}
+
+.inner-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .inner-card {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.front {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
